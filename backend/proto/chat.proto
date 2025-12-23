@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package chat;
+
+option go_package = "github.com/yourproject/backend/gen";
+
+service ChatService {
+  // Unary RPC
+  rpc SendMessage(MessageRequest) returns (MessageResponse) {}
+
+  // Server streaming
+  rpc SubscribeMessages(SubscribeRequest) returns (stream MessageResponse) {}
+
+  // Bidirectional streaming
+  rpc ChatStream(stream MessageRequest) returns (stream MessageResponse) {}
+}
+
+message MessageRequest {
+  string user_id = 1;
+  string message = 2;
+  string room = 3;
+}
+
+message MessageResponse {
+  string user_id = 1;
+  string message = 2;
+  string timestamp = 3;
+}
+
+message SubscribeRequest {
+  string room = 1;
+  string user_id = 2;
+}
