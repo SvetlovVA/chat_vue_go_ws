@@ -46,7 +46,7 @@
     </div>
 
     <div class="connection-info" v-if="!isConnected">
-      <p>Make sure your Go backend is running on http://localhost:8080</p>
+      <p>Make sure your Go backend is running on http://0.0.0.0:8080</p>
       <p>Run in terminal: <code>cd ~/projects/vuechat/backend && go run server.go</code></p>
     </div>
   </div>
